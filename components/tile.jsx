@@ -1,8 +1,9 @@
 import React from 'react';
 
 class Tile extends React.Component{
-    contructor(props){
+    constructor(props){
         super(props);
+        this.handleClick = this.handleClick.bind(this);
     }
     
     handleClick(event){
@@ -28,6 +29,7 @@ class Tile extends React.Component{
         } else{
             klass = 'unexplored';
         }
+        klass = `tile ${klass}`;
         return(
             <div className = {klass} onClick = {this.handleClick}>
                 {text}
