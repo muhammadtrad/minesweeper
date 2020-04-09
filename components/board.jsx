@@ -1,25 +1,45 @@
 import React from 'react';
+import Tile from './tile';
 
 class Board extends React.Component{
     constructor(props){
         super(props);
-
+    
+        this.renderRows = this.renderRows.bind(this);
     }
 
     render(){
-        let content = <div></div>;
-        content += <h1>Hello</h1>;
-        // const output = this.props.board.map((elem, idx) =>{
-        //     content.innerHTML += <div key={idx}>{elem}</div>;
-        // });
+        const board = this.props.board;
+        const that = this;
         return(
-            <div>
-                {content}
-                <h1>hello</h1>
+            <div id='board'>
+                {this.renderRows()}
             </div>
         );
     }
 
+    renderRows(){
+        const board = this.props.board;
+        return board.grid.map((row, i) => {
+            return (
+                <div className="row" key={`row-${i}`}>
+                    {this.renderTiles(row,i)}
+                </div>
+            );
+        });
+    }
+    
+    renderTiles(row, i){
+        const board = this.props.board;
+        return row.map( (tile, j) => {
+            return ( 
+              <Tile 
+                tile= {tile}
+                updateGame={this.props.updateGame}
+                key={i * board.gridSize + j}/>
+            );
+        });
+    }
 }
 
 export default Board;

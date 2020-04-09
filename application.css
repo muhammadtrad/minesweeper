@@ -1,0 +1,42 @@
+#main{
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1{
+    font-size: 24px;
+    text-align: center;
+}
+
+p{
+    font-size: 13px;
+    text-align: center;
+}
+.row{
+    width: 250px;
+    margin: 0 auto;
+}
+
+.tile{
+    height: 20px;
+    width: 20px;
+    background: lightgray;
+    float: left;
+    border-style: outset;
+    border-width: 2px;
+    line-height: 20px;
+    padding-left: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+}
+
+.explored{
+    border-style: inset;
+}
+
+.flagged, .bombed{
+    color:red; 
+}
